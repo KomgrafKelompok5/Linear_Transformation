@@ -80,6 +80,7 @@ void mouseClicked() {
   float x = (mouseX - width / 2.0) / gridSize;
   float y = -(mouseY - height / 2.0) / gridSize;
   points.add(new Point(x, y));
+  Choose =0;
 }
 //End Add Point When Mouse Clicked
 
@@ -272,7 +273,16 @@ ArrayList<Point> reflect(ArrayList<Point> points, float m, float c){
   return result;
 }
 //End Linear Trasnformation
-
+//Gui
+void DrawResult(ArrayList<Point> result) {
+  drawPoint(result, new Color(255, 0, 255));
+  drawPolygon(result, new Color(255, 0, 255));
+}
+int Choose =0;
+int theta=0;
+float x=0,y=0,k=0,xFactor=0,yFactor=0;
+char axis='q';
+//Gui
 void setup() {
   size(1200, 720);
   createGUI();
@@ -285,8 +295,10 @@ void draw() {
   scale(1, -1);
   drawPoint(points, new Color(255, 0, 0));
   drawPolygon(convexHull(points), new Color(255, 0, 0));
-  drawLine(2, 3, new Color(255, 155, 100));
-  ArrayList<Point> result = reflect(convexHull(points), 2, 3);
-  drawPoint(result, new Color(255, 0, 255));
-  drawPolygon(result, new Color(255, 0, 255));
+ // drawLine(2, 3, new Color(255, 155, 100));
+  if(Choose==1)DrawResult(reflect(convexHull(points), 2, 3));
+  if(Choose==2)DrawResult(rotate(points,theta));
+  if(Choose==3)DrawResult(translate(points,x,y));
+  if(Choose==4)DrawResult(shear(points,k, axis));
+  if(Choose==5)DrawResult(stretch(points,xFactor,yFactor));
 }

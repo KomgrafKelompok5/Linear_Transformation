@@ -31,32 +31,75 @@ public void button1_click1(GButton source, GEvent event) { //_CODE_:button1:7753
    points.add(new Point(int(textfield1.getText()), int(textfield2.getText())));
    textfield1.setText("");
    textfield2.setText("");
+   Choose =0;
 } //_CODE_:button1:775357:
 
-public void textfield3_change1(GTextField source, GEvent event) { //_CODE_:textfield3:977619:
-  println("textfield3 - GTextField >> GEvent." + event + " @ " + millis());
-} //_CODE_:textfield3:977619:
-
-/*public void button2_click1(GButton source, GEvent event) { //_CODE_:button2:947754:
+public void button2_click1(GButton source, GEvent event) { //_CODE_:button2:502307:
   println("button2 - GButton >> GEvent." + event + " @ " + millis());
-  sX=int(textfield3.getText());
-  sY=int(textfield4.getText());
-  float sHasil=0;
-  for(Point v : points){
-    if(v.x==sX&&v.y==sY)
-      sHasil =length(v);
-  }
-   textfield3.setText("");
-   textfield4.setText("");
-   if(sHasil==0)
-     label3.setText("Vertex Tidak ditemukan");
-    else
-      label3.setText(Float.toString(sHasil));
-} //_CODE_:button2:947754:
+  Choose=1;
+} //_CODE_:button2:502307:
 
-public void textfield4_change1(GTextField source, GEvent event) { //_CODE_:textfield4:847512:
+public void textfield3_change1(GTextField source, GEvent event) { //_CODE_:textfield3:280832:
+  println("textfield3 - GTextField >> GEvent." + event + " @ " + millis());
+} //_CODE_:textfield3:280832:
+
+public void button3_click1(GButton source, GEvent event) { //_CODE_:button3:423514:
+  println("button3 - GButton >> GEvent." + event + " @ " + millis());
+  theta = int (textfield3.getText());
+  Choose=2;
+  textfield3.setText("");
+} //_CODE_:button3:423514:
+
+public void textfield4_change1(GTextField source, GEvent event) { //_CODE_:textfield4:537282:
   println("textfield4 - GTextField >> GEvent." + event + " @ " + millis());
-} //_CODE_:textfield4:847512:*/
+} //_CODE_:textfield4:537282:
+
+public void textfield5_change1(GTextField source, GEvent event) { //_CODE_:textfield5:209846:
+  println("textfield5 - GTextField >> GEvent." + event + " @ " + millis());
+} //_CODE_:textfield5:209846:
+
+public void button4_click1(GButton source, GEvent event) { //_CODE_:button4:319971:
+  println("button4 - GButton >> GEvent." + event + " @ " + millis());
+  x = float (textfield4.getText());
+  x = float (textfield5.getText());
+  Choose=3;
+   textfield4.setText("");
+    textfield5.setText("");
+} //_CODE_:button4:319971:
+
+public void textfield6_change1(GTextField source, GEvent event) { //_CODE_:textfield6:847531:
+  println("textfield6 - GTextField >> GEvent." + event + " @ " + millis());
+} //_CODE_:textfield6:847531:
+
+public void textfield7_change1(GTextField source, GEvent event) { //_CODE_:textfield7:760164:
+  println("textfield7 - GTextField >> GEvent." + event + " @ " + millis());
+} //_CODE_:textfield7:760164:
+
+public void button5_click1(GButton source, GEvent event) { //_CODE_:button5:839469:
+  println("button5 - GButton >> GEvent." + event + " @ " + millis());
+  k= float (textfield6.getText());
+  axis = (textfield7.getText()).charAt(0);
+   Choose=4;
+    textfield6.setText("");
+     textfield7.setText("");
+} //_CODE_:button5:839469:
+
+public void textfield8_change1(GTextField source, GEvent event) { //_CODE_:textfield8:272252:
+  println("textfield8 - GTextField >> GEvent." + event + " @ " + millis());
+} //_CODE_:textfield8:272252:
+
+public void textfield9_change1(GTextField source, GEvent event) { //_CODE_:textfield9:271526:
+  println("textfield9 - GTextField >> GEvent." + event + " @ " + millis());
+} //_CODE_:textfield9:271526:
+
+public void button6_click1(GButton source, GEvent event) { //_CODE_:button6:484688:
+  println("button6 - GButton >> GEvent." + event + " @ " + millis());
+  xFactor = float (textfield8.getText());
+  yFactor = float (textfield9.getText());
+  Choose=5;
+  textfield8.setText("");
+  textfield9.setText("");
+} //_CODE_:button6:484688:
 
 
 
@@ -67,7 +110,7 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setCursor(ARROW);
   surface.setTitle("Sketch Window");
-  window1 = GWindow.getWindow(this, "Control", 0, 0, 220, 300, JAVA2D);
+  window1 = GWindow.getWindow(this, "Control", 0, 0, 220, 380, JAVA2D);
   window1.noLoop();
   window1.addDrawHandler(this, "win_draw1");
   textfield1 = new GTextField(window1, 15, 29, 52, 25, G4P.SCROLLBARS_NONE);
@@ -76,30 +119,69 @@ public void createGUI(){
   textfield2 = new GTextField(window1, 76, 29, 52, 24, G4P.SCROLLBARS_NONE);
   textfield2.setOpaque(true);
   textfield2.addEventHandler(this, "textfield2_change1");
-  button1 = new GButton(window1, 137, 26, 68, 26);
-  button1.setText("Build Vector");
+  button1 = new GButton(window1, 137, 26, 68, 30);
+  button1.setText("Build Shape");
   button1.addEventHandler(this, "button1_click1");
   label1 = new GLabel(window1, 64, 3, 80, 20);
   label1.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
-  label1.setText("Build Vector");
+  label1.setText("Build Shape");
   label1.setOpaque(false);
   label2 = new GLabel(window1, 64, 69, 80, 20);
   label2.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
-  label2.setText("Lenght Vector");
+  label2.setText("Reflect");
   label2.setOpaque(false);
-  textfield3 = new GTextField(window1, 14, 96, 53, 23, G4P.SCROLLBARS_NONE);
+  button2 = new GButton(window1, 64, 89, 80, 30);
+  button2.setText("Reflect");
+  button2.addEventHandler(this, "button2_click1");
+  label3 = new GLabel(window1, 66, 132, 80, 20);
+  label3.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label3.setText("Rotate");
+  label3.setOpaque(false);
+  textfield3 = new GTextField(window1, 37, 159, 64, 25, G4P.SCROLLBARS_NONE);
   textfield3.setOpaque(true);
   textfield3.addEventHandler(this, "textfield3_change1");
-  button2 = new GButton(window1, 137, 96, 64, 24);
-  button2.setText("Length");
-  button2.addEventHandler(this, "button2_click1");
-  textfield4 = new GTextField(window1, 74, 97, 55, 22, G4P.SCROLLBARS_NONE);
+  button3 = new GButton(window1, 108, 158, 74, 30);
+  button3.setText("Rotate");
+  button3.addEventHandler(this, "button3_click1");
+  label4 = new GLabel(window1, 64, 195, 80, 20);
+  label4.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label4.setText("Translate");
+  label4.setOpaque(false);
+  textfield4 = new GTextField(window1, 13, 221, 59, 26, G4P.SCROLLBARS_NONE);
   textfield4.setOpaque(true);
   textfield4.addEventHandler(this, "textfield4_change1");
-  label3 = new GLabel(window1, 14, 125, 184, 20);
-  label3.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
-  label3.setText("--");
-  label3.setOpaque(false);
+  textfield5 = new GTextField(window1, 77, 221, 62, 26, G4P.SCROLLBARS_NONE);
+  textfield5.setOpaque(true);
+  textfield5.addEventHandler(this, "textfield5_change1");
+  button4 = new GButton(window1, 144, 220, 66, 28);
+  button4.setText("Translate");
+  button4.addEventHandler(this, "button4_click1");
+  textfield6 = new GTextField(window1, 13, 278, 59, 26, G4P.SCROLLBARS_NONE);
+  textfield6.setOpaque(true);
+  textfield6.addEventHandler(this, "textfield6_change1");
+  label5 = new GLabel(window1, 65, 253, 80, 20);
+  label5.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label5.setText("Shear");
+  label5.setOpaque(false);
+  textfield7 = new GTextField(window1, 78, 278, 61, 26, G4P.SCROLLBARS_NONE);
+  textfield7.setOpaque(true);
+  textfield7.addEventHandler(this, "textfield7_change1");
+  button5 = new GButton(window1, 145, 277, 65, 29);
+  button5.setText("Shear");
+  button5.addEventHandler(this, "button5_click1");
+  label6 = new GLabel(window1, 64, 311, 80, 20);
+  label6.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label6.setText("Stretch");
+  label6.setOpaque(false);
+  textfield8 = new GTextField(window1, 11, 335, 61, 25, G4P.SCROLLBARS_NONE);
+  textfield8.setOpaque(true);
+  textfield8.addEventHandler(this, "textfield8_change1");
+  textfield9 = new GTextField(window1, 77, 336, 66, 26, G4P.SCROLLBARS_NONE);
+  textfield9.setOpaque(true);
+  textfield9.addEventHandler(this, "textfield9_change1");
+  button6 = new GButton(window1, 149, 336, 62, 26);
+  button6.setText("Stretch");
+  button6.addEventHandler(this, "button6_click1");
   window1.loop();
 }
 
@@ -111,7 +193,19 @@ GTextField textfield2;
 GButton button1; 
 GLabel label1; 
 GLabel label2; 
-GTextField textfield3; 
 GButton button2; 
-GTextField textfield4; 
 GLabel label3; 
+GTextField textfield3; 
+GButton button3; 
+GLabel label4; 
+GTextField textfield4; 
+GTextField textfield5; 
+GButton button4; 
+GTextField textfield6; 
+GLabel label5; 
+GTextField textfield7; 
+GButton button5; 
+GLabel label6; 
+GTextField textfield8; 
+GTextField textfield9; 
+GButton button6; 
