@@ -20,6 +20,7 @@ synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:windo
 
 public void textfield1_change1(GTextField source, GEvent event) { //_CODE_:textfield1:693935:
   println("textfield1 - GTextField >> GEvent." + event + " @ " + millis());
+ 
 } //_CODE_:textfield1:693935:
 
 public void textfield2_change1(GTextField source, GEvent event) { //_CODE_:textfield2:792332:
@@ -36,11 +37,16 @@ public void button1_click1(GButton source, GEvent event) { //_CODE_:button1:7753
 
 public void button2_click1(GButton source, GEvent event) { //_CODE_:button2:502307:
   println("button2 - GButton >> GEvent." + event + " @ " + millis());
+  x= float( textfield10.getText());
+  y=float (textfield11.getText());
   Choose=1;
+   textfield10.setText("");
+   textfield11.setText("");
 } //_CODE_:button2:502307:
 
 public void textfield3_change1(GTextField source, GEvent event) { //_CODE_:textfield3:280832:
   println("textfield3 - GTextField >> GEvent." + event + " @ " + millis());
+ 
 } //_CODE_:textfield3:280832:
 
 public void button3_click1(GButton source, GEvent event) { //_CODE_:button3:423514:
@@ -52,10 +58,12 @@ public void button3_click1(GButton source, GEvent event) { //_CODE_:button3:4235
 
 public void textfield4_change1(GTextField source, GEvent event) { //_CODE_:textfield4:537282:
   println("textfield4 - GTextField >> GEvent." + event + " @ " + millis());
+ 
 } //_CODE_:textfield4:537282:
 
 public void textfield5_change1(GTextField source, GEvent event) { //_CODE_:textfield5:209846:
   println("textfield5 - GTextField >> GEvent." + event + " @ " + millis());
+  
 } //_CODE_:textfield5:209846:
 
 public void button4_click1(GButton source, GEvent event) { //_CODE_:button4:319971:
@@ -69,10 +77,12 @@ public void button4_click1(GButton source, GEvent event) { //_CODE_:button4:3199
 
 public void textfield6_change1(GTextField source, GEvent event) { //_CODE_:textfield6:847531:
   println("textfield6 - GTextField >> GEvent." + event + " @ " + millis());
+ 
 } //_CODE_:textfield6:847531:
 
 public void textfield7_change1(GTextField source, GEvent event) { //_CODE_:textfield7:760164:
   println("textfield7 - GTextField >> GEvent." + event + " @ " + millis());
+  
 } //_CODE_:textfield7:760164:
 
 public void button5_click1(GButton source, GEvent event) { //_CODE_:button5:839469:
@@ -86,10 +96,12 @@ public void button5_click1(GButton source, GEvent event) { //_CODE_:button5:8394
 
 public void textfield8_change1(GTextField source, GEvent event) { //_CODE_:textfield8:272252:
   println("textfield8 - GTextField >> GEvent." + event + " @ " + millis());
+ 
 } //_CODE_:textfield8:272252:
 
 public void textfield9_change1(GTextField source, GEvent event) { //_CODE_:textfield9:271526:
   println("textfield9 - GTextField >> GEvent." + event + " @ " + millis());
+
 } //_CODE_:textfield9:271526:
 
 public void button6_click1(GButton source, GEvent event) { //_CODE_:button6:484688:
@@ -100,6 +112,16 @@ public void button6_click1(GButton source, GEvent event) { //_CODE_:button6:4846
   textfield8.setText("");
   textfield9.setText("");
 } //_CODE_:button6:484688:
+
+public void textfield10_change1(GTextField source, GEvent event) { //_CODE_:textfield10:408774:
+  println("textfield10 - GTextField >> GEvent." + event + " @ " + millis());
+  
+} //_CODE_:textfield10:408774:
+
+public void textfield11_change1(GTextField source, GEvent event) { //_CODE_:textfield11:651069:
+  println("textfield11 - GTextField >> GEvent." + event + " @ " + millis());
+  
+} //_CODE_:textfield11:651069:
 
 
 
@@ -130,7 +152,7 @@ public void createGUI(){
   label2.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label2.setText("Reflect");
   label2.setOpaque(false);
-  button2 = new GButton(window1, 64, 89, 80, 30);
+  button2 = new GButton(window1, 137, 95, 60, 29);
   button2.setText("Reflect");
   button2.addEventHandler(this, "button2_click1");
   label3 = new GLabel(window1, 66, 132, 80, 20);
@@ -143,7 +165,7 @@ public void createGUI(){
   button3 = new GButton(window1, 108, 158, 74, 30);
   button3.setText("Rotate");
   button3.addEventHandler(this, "button3_click1");
-  label4 = new GLabel(window1, 64, 195, 80, 20);
+  label4 = new GLabel(window1, 64, 194, 80, 20);
   label4.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label4.setText("Translate");
   label4.setOpaque(false);
@@ -182,6 +204,12 @@ public void createGUI(){
   button6 = new GButton(window1, 149, 336, 62, 26);
   button6.setText("Stretch");
   button6.addEventHandler(this, "button6_click1");
+  textfield10 = new GTextField(window1, 9, 96, 60, 24, G4P.SCROLLBARS_NONE);
+  textfield10.setOpaque(true);
+  textfield10.addEventHandler(this, "textfield10_change1");
+  textfield11 = new GTextField(window1, 75, 96, 55, 26, G4P.SCROLLBARS_NONE);
+  textfield11.setOpaque(true);
+  textfield11.addEventHandler(this, "textfield11_change1");
   window1.loop();
 }
 
@@ -209,3 +237,5 @@ GLabel label6;
 GTextField textfield8; 
 GTextField textfield9; 
 GButton button6; 
+GTextField textfield10; 
+GTextField textfield11; 

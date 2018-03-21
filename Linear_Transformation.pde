@@ -275,6 +275,7 @@ ArrayList<Point> reflect(ArrayList<Point> points, float m, float c){
 //End Linear Trasnformation
 //Gui
 void DrawResult(ArrayList<Point> result) {
+  if(Choose==1)drawLine(x, y, new Color(255, 155, 100));
   drawPoint(result, new Color(255, 0, 255));
   drawPolygon(result, new Color(255, 0, 255));
 }
@@ -296,9 +297,9 @@ void draw() {
   drawPoint(points, new Color(255, 0, 0));
   drawPolygon(convexHull(points), new Color(255, 0, 0));
  // drawLine(2, 3, new Color(255, 155, 100));
-  if(Choose==1)DrawResult(reflect(convexHull(points), 2, 3));
-  if(Choose==2)DrawResult(rotate(points,theta));
-  if(Choose==3)DrawResult(translate(points,x,y));
-  if(Choose==4)DrawResult(shear(points,k, axis));
-  if(Choose==5)DrawResult(stretch(points,xFactor,yFactor));
+  if(Choose==1)DrawResult(reflect(convexHull(points), x, y));
+  if(Choose==2)DrawResult(rotate(convexHull(points),theta));
+  if(Choose==3)DrawResult(translate(convexHull(points),x,y));
+  if(Choose==4)DrawResult(shear(convexHull(points),k, axis));
+  if(Choose==5)DrawResult(stretch(convexHull(points),xFactor,yFactor));
 }
