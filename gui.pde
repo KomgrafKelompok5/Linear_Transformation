@@ -61,11 +61,6 @@ public void textfield4_change1(GTextField source, GEvent event) { //_CODE_:textf
  
 } //_CODE_:textfield4:537282:
 
-public void textfield5_change1(GTextField source, GEvent event) { //_CODE_:textfield5:209846:
-  println("textfield5 - GTextField >> GEvent." + event + " @ " + millis());
-  
-} //_CODE_:textfield5:209846:
-
 public void button4_click1(GButton source, GEvent event) { //_CODE_:button4:319971:
   println("button4 - GButton >> GEvent." + event + " @ " + millis());
   x = float (textfield4.getText());
@@ -123,6 +118,21 @@ public void textfield11_change1(GTextField source, GEvent event) { //_CODE_:text
   
 } //_CODE_:textfield11:651069:
 
+public void textfield12_change1(GTextField source, GEvent event) { //_CODE_:textfield12:321277:
+  println("textfield12 - GTextField >> GEvent." + event + " @ " + millis());
+} //_CODE_:textfield12:321277:
+
+public void button7_click1(GButton source, GEvent event) { //_CODE_:button7:622198:
+  println("button7 - GButton >> GEvent." + event + " @ " + millis());
+  Choose=6;
+  refAxis= textfield12.getText();
+  textfield12.setText("");
+} //_CODE_:button7:622198:
+
+public void textfield5_change1(GTextField source, GEvent event) { //_CODE_:textfield5:967213:
+  println("textfield5 - GTextField >> GEvent." + event + " @ " + millis());
+} //_CODE_:textfield5:967213:
+
 
 
 // Create all the GUI controls. 
@@ -132,7 +142,7 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setCursor(ARROW);
   surface.setTitle("Sketch Window");
-  window1 = GWindow.getWindow(this, "Control", 0, 0, 220, 380, JAVA2D);
+  window1 = GWindow.getWindow(this, "Control", 0, 0, 220, 420, JAVA2D);
   window1.noLoop();
   window1.addDrawHandler(this, "win_draw1");
   textfield1 = new GTextField(window1, 15, 29, 52, 25, G4P.SCROLLBARS_NONE);
@@ -169,13 +179,10 @@ public void createGUI(){
   label4.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label4.setText("Translate");
   label4.setOpaque(false);
-  textfield4 = new GTextField(window1, 13, 221, 59, 26, G4P.SCROLLBARS_NONE);
+  textfield4 = new GTextField(window1, 13, 221, 63, 26, G4P.SCROLLBARS_NONE);
   textfield4.setOpaque(true);
   textfield4.addEventHandler(this, "textfield4_change1");
-  textfield5 = new GTextField(window1, 77, 221, 62, 26, G4P.SCROLLBARS_NONE);
-  textfield5.setOpaque(true);
-  textfield5.addEventHandler(this, "textfield5_change1");
-  button4 = new GButton(window1, 144, 220, 66, 28);
+  button4 = new GButton(window1, 145, 217, 66, 28);
   button4.setText("Translate");
   button4.addEventHandler(this, "button4_click1");
   textfield6 = new GTextField(window1, 13, 278, 59, 26, G4P.SCROLLBARS_NONE);
@@ -210,6 +217,19 @@ public void createGUI(){
   textfield11 = new GTextField(window1, 75, 96, 55, 26, G4P.SCROLLBARS_NONE);
   textfield11.setOpaque(true);
   textfield11.addEventHandler(this, "textfield11_change1");
+  label7 = new GLabel(window1, 64, 367, 80, 20);
+  label7.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label7.setText("Reflect 2");
+  label7.setOpaque(false);
+  textfield12 = new GTextField(window1, 42, 387, 65, 26, G4P.SCROLLBARS_NONE);
+  textfield12.setOpaque(true);
+  textfield12.addEventHandler(this, "textfield12_change1");
+  button7 = new GButton(window1, 113, 386, 59, 28);
+  button7.setText("Face text");
+  button7.addEventHandler(this, "button7_click1");
+  textfield5 = new GTextField(window1, 80, 219, 60, 28, G4P.SCROLLBARS_NONE);
+  textfield5.setOpaque(true);
+  textfield5.addEventHandler(this, "textfield5_change1");
   window1.loop();
 }
 
@@ -227,7 +247,6 @@ GTextField textfield3;
 GButton button3; 
 GLabel label4; 
 GTextField textfield4; 
-GTextField textfield5; 
 GButton button4; 
 GTextField textfield6; 
 GLabel label5; 
@@ -239,3 +258,7 @@ GTextField textfield9;
 GButton button6; 
 GTextField textfield10; 
 GTextField textfield11; 
+GLabel label7; 
+GTextField textfield12; 
+GButton button7; 
+GTextField textfield5; 

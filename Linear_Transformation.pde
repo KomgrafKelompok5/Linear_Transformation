@@ -283,6 +283,7 @@ int Choose =0;
 int theta=0;
 float x=0,y=0,k=0,xFactor=0,yFactor=0;
 char axis='q';
+String refAxis="";
 //Gui
 void setup() {
   size(1200, 720);
@@ -302,4 +303,5 @@ void draw() {
   if(Choose==3)DrawResult(translate(convexHull(points),x,y));
   if(Choose==4)DrawResult(shear(convexHull(points),k, axis));
   if(Choose==5)DrawResult(stretch(convexHull(points),xFactor,yFactor));
+  if(Choose==6)DrawResult(reflect(convexHull(points), refAxis)); //belum dibuat
 }
