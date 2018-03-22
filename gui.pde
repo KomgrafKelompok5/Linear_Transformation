@@ -89,7 +89,6 @@ public void button5_click1(GButton source, GEvent event) { //_CODE_:button5:8394
      textfield7.setText("");
 } //_CODE_:button5:839469:
 
-
 public void textfield9_change1(GTextField source, GEvent event) { //_CODE_:textfield9:271526:
   println("textfield9 - GTextField >> GEvent." + event + " @ " + millis());
 
@@ -128,6 +127,11 @@ public void textfield5_change1(GTextField source, GEvent event) { //_CODE_:textf
   println("textfield5 - GTextField >> GEvent." + event + " @ " + millis());
 } //_CODE_:textfield5:967213:
 
+public void button8_click1(GButton source, GEvent event) { //_CODE_:button8:471526:
+  println("button8 - GButton >> GEvent." + event + " @ " + millis());
+  clearshape();
+} //_CODE_:button8:471526:
+
 
 
 // Create all the GUI controls. 
@@ -137,7 +141,7 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setCursor(ARROW);
   surface.setTitle("Sketch Window");
-  window1 = GWindow.getWindow(this, "Control", 0, 0, 220, 420, JAVA2D);
+  window1 = GWindow.getWindow(this, "Control", 0, 0, 220, 450, JAVA2D);
   window1.noLoop();
   window1.addDrawHandler(this, "win_draw1");
   textfield1 = new GTextField(window1, 15, 29, 52, 25, G4P.SCROLLBARS_NONE);
@@ -183,7 +187,7 @@ public void createGUI(){
   textfield6 = new GTextField(window1, 13, 278, 59, 26, G4P.SCROLLBARS_NONE);
   textfield6.setOpaque(true);
   textfield6.addEventHandler(this, "textfield6_change1");
-  label5 = new GLabel(window1, 65, 253, 80, 20);
+  label5 = new GLabel(window1, 62, 252, 80, 20);
   label5.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label5.setText("Shear");
   label5.setOpaque(false);
@@ -197,10 +201,10 @@ public void createGUI(){
   label6.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label6.setText("Stretch");
   label6.setOpaque(false);
-  textfield9 = new GTextField(window1, 77, 336, 66, 26, G4P.SCROLLBARS_NONE);
+  textfield9 = new GTextField(window1, 49, 335, 66, 26, G4P.SCROLLBARS_NONE);
   textfield9.setOpaque(true);
   textfield9.addEventHandler(this, "textfield9_change1");
-  button6 = new GButton(window1, 149, 336, 62, 26);
+  button6 = new GButton(window1, 119, 334, 62, 26);
   button6.setText("Stretch");
   button6.addEventHandler(this, "button6_click1");
   textfield10 = new GTextField(window1, 9, 96, 60, 24, G4P.SCROLLBARS_NONE);
@@ -222,6 +226,9 @@ public void createGUI(){
   textfield5 = new GTextField(window1, 80, 219, 60, 28, G4P.SCROLLBARS_NONE);
   textfield5.setOpaque(true);
   textfield5.addEventHandler(this, "textfield5_change1");
+  button8 = new GButton(window1, 70, 421, 67, 27);
+  button8.setText("CLEAR");
+  button8.addEventHandler(this, "button8_click1");
   window1.loop();
 }
 
@@ -244,7 +251,7 @@ GTextField textfield6;
 GLabel label5; 
 GTextField textfield7; 
 GButton button5; 
-GLabel label6;  
+GLabel label6; 
 GTextField textfield9; 
 GButton button6; 
 GTextField textfield10; 
@@ -253,3 +260,4 @@ GLabel label7;
 GTextField textfield12; 
 GButton button7; 
 GTextField textfield5; 
+GButton button8; 

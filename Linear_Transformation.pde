@@ -275,12 +275,23 @@ ArrayList<Point> reflect(ArrayList<Point> points, float m, float c){
 //End Linear Trasnformation
 
 void clearshape(){
-  points.clear();
+  Choose=0;
+ points.clear();
 }
 
 //Gui
 void DrawResult(ArrayList<Point> result) {
   if(Choose==1)drawLine(x, y, new Color(255, 155, 100));
+   if(Choose==6) {
+     if(refAxis.equals("x"))
+       drawLine(0, 0, new Color(255, 155, 100));
+     else if(refAxis.equals("y")) 
+        drawLine(width / 2, 0, new Color(255, 155, 100));
+     else if(refAxis.equals("y=x"))
+        drawLine(1, 0, new Color(255, 155, 100));
+     else if(refAxis.equals("origin"))
+        drawLine(-1, 0, new Color(255, 155, 100));
+   }
   drawPoint(result, new Color(255, 0, 255));
   drawPolygon(result, new Color(255, 0, 255));
 }
@@ -308,5 +319,5 @@ void draw() {
   if(Choose==3)DrawResult(translate(convexHull(points),x,y));
   if(Choose==4)DrawResult(shear(convexHull(points),k, axis));
   if(Choose==5)DrawResult(stretch(convexHull(points),xFactor,yFactor));
-  if(Choose==6)DrawResult(reflect(convexHull(points), refAxis)); //belum dibuat
+  if(Choose==6)DrawResult(reflect(convexHull(points), refAxis)); 
 }
