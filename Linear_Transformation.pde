@@ -273,6 +273,11 @@ ArrayList<Point> reflect(ArrayList<Point> points, float m, float c){
   return result;
 }
 //End Linear Trasnformation
+
+void clearshape(){
+  points.clear();
+}
+
 //Gui
 void DrawResult(ArrayList<Point> result) {
   if(Choose==1)drawLine(x, y, new Color(255, 155, 100));

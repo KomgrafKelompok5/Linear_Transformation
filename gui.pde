@@ -64,7 +64,7 @@ public void textfield4_change1(GTextField source, GEvent event) { //_CODE_:textf
 public void button4_click1(GButton source, GEvent event) { //_CODE_:button4:319971:
   println("button4 - GButton >> GEvent." + event + " @ " + millis());
   x = float (textfield4.getText());
-  x = float (textfield5.getText());
+  y = float (textfield5.getText());
   Choose=3;
    textfield4.setText("");
     textfield5.setText("");
@@ -89,10 +89,6 @@ public void button5_click1(GButton source, GEvent event) { //_CODE_:button5:8394
      textfield7.setText("");
 } //_CODE_:button5:839469:
 
-public void textfield8_change1(GTextField source, GEvent event) { //_CODE_:textfield8:272252:
-  println("textfield8 - GTextField >> GEvent." + event + " @ " + millis());
- 
-} //_CODE_:textfield8:272252:
 
 public void textfield9_change1(GTextField source, GEvent event) { //_CODE_:textfield9:271526:
   println("textfield9 - GTextField >> GEvent." + event + " @ " + millis());
@@ -101,10 +97,9 @@ public void textfield9_change1(GTextField source, GEvent event) { //_CODE_:textf
 
 public void button6_click1(GButton source, GEvent event) { //_CODE_:button6:484688:
   println("button6 - GButton >> GEvent." + event + " @ " + millis());
-  xFactor = float (textfield8.getText());
   yFactor = float (textfield9.getText());
+   xFactor = yFactor;
   Choose=5;
-  textfield8.setText("");
   textfield9.setText("");
 } //_CODE_:button6:484688:
 
@@ -202,9 +197,6 @@ public void createGUI(){
   label6.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label6.setText("Stretch");
   label6.setOpaque(false);
-  textfield8 = new GTextField(window1, 11, 335, 61, 25, G4P.SCROLLBARS_NONE);
-  textfield8.setOpaque(true);
-  textfield8.addEventHandler(this, "textfield8_change1");
   textfield9 = new GTextField(window1, 77, 336, 66, 26, G4P.SCROLLBARS_NONE);
   textfield9.setOpaque(true);
   textfield9.addEventHandler(this, "textfield9_change1");
@@ -252,8 +244,7 @@ GTextField textfield6;
 GLabel label5; 
 GTextField textfield7; 
 GButton button5; 
-GLabel label6; 
-GTextField textfield8; 
+GLabel label6;  
 GTextField textfield9; 
 GButton button6; 
 GTextField textfield10; 
